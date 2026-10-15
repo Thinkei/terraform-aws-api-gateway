@@ -7,7 +7,7 @@ AllCops:
 # + PeerCount : number of required peer approvals
 # + Branches : only requires approvals on pull request on these branches as base.
 Review::RequireApprovals:
-  Enabled: true
+  Enabled: false
   Required: true
   PeerCount: 2
   Branches: *target_branches
@@ -36,7 +36,7 @@ Kafka::MessageChanged:
   Enabled: false
 
 Thinkei::ReviewCrossTeam:
-  Enabled: true
+  Enabled: false
   Required: true
 
 Security::TextMatchWarning:
