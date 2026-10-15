@@ -14,7 +14,8 @@ resource "aws_api_gateway_rest_api" "this" {
   tags = module.this.tags
 
   endpoint_configuration {
-    types = [var.endpoint_type]
+    types            = [var.endpoint_type]
+    vpc_endpoint_ids = var.vpc_endpoints
   }
 }
 
@@ -41,7 +42,10 @@ resource "aws_api_gateway_deployment" "this" {
   rest_api_id = aws_api_gateway_rest_api.this[0].id
 
   triggers = {
-    redeployment = sha1(jsonencode(aws_api_gateway_rest_api.this[0].body))
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_rest_api.this[0].body,
+      local.create_rest_api_policy ? var.rest_api_policy : ""
+    ]))
   }
 
   lifecycle {
@@ -80,9 +84,11 @@ resource "aws_api_gateway_method_settings" "all" {
   method_path = "*/*"
 
   settings {
-    metrics_enabled    = var.metrics_enabled
-    logging_level      = var.logging_level
-    data_trace_enabled = var.data_trace_enabled
+    metrics_enabled        = var.metrics_enabled
+    logging_level          = var.logging_level
+    data_trace_enabled     = var.data_trace_enabled
+    throttling_rate_limit  = var.throttling_rate_limit
+    throttling_burst_limit = var.throttling_burst_limit
   }
 }
 

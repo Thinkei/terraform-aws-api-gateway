@@ -1,21 +1,21 @@
-## what
+# Jira card (URL): <!-- Jira URL -->
 
-<!--
-- Describe high-level what changed as a result of these commits (i.e. in plain-english, what do these changes mean?)
-- Use bullet points to be concise and to the point.
--->
+# Summary
 
-## why
+<!-- Add description here -->
 
-<!--
-- Provide the justifications for the changes (e.g. business case). 
-- Describe why these changes were made (e.g. why do these commits fix the problem?)
-- Use bullet points to be concise and to the point.
--->
+# Changes proposed in this pull request:
+- 
+- 
+- 
 
-## references
+# AI usage
+- [ ] No AI was used
+- [ ] AI-assisted code completion
+- [ ] AI agents used to reason about or plan code
+- [ ] AI agents used to generate or modify code
+- [ ] Code was 100% written by AI
 
-<!--
-- Link to any supporting github issues or helpful documentation to add some context (e.g. stackoverflow). 
-- Use `closes #123`, if this PR closes a GitHub issue `#123`
--->
+If "No AI was used" is ticked, comment why AI was not utilised: <!-- add reasoning here -->
+
+# Testing plan
